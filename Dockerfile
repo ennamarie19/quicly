@@ -6,8 +6,9 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y cmake clang libssl-dev git build-essential
 
 ## Add source code to the build stage.
-ADD . /quicly
+RUN git clone --recursive https://github.com/ennamarie19/quicly.git
 WORKDIR /quicly
+RUN git checkout mayhem
 
 ## TODO: ADD YOUR BUILD INSTRUCTIONS HERE.
 RUN mkdir -p build
