@@ -3,7 +3,7 @@ FROM --platform=linux/amd64 ubuntu:20.04 as builder
 
 ## Install build dependencies.
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y cmake clang libssl-dev git
+    DEBIAN_FRONTEND=noninteractive apt-get install -y cmake clang libssl-dev git build-essential
 
 ## Add source code to the build stage.
 ADD . /quicly
@@ -20,4 +20,5 @@ FROM --platform=linux/amd64 ubuntu:20.04
 
 ## TODO: Change <Path in Builder Stage>
 COPY --from=builder /quicly/build/quicly-fuzzer-packet /
+COPY --from=builder /quicly/deps /deps
 COPY --from=builder /lib /lib
