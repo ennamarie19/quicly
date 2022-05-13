@@ -9,12 +9,14 @@ void __sanitizer_cov_trace_pc(void)
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
 {
 	int ret;
-	quicly_context_t ctx;
+    size_t off;
+    quicly_context_t ctx;
 	quicly_decoded_packet_t p;
 
 	ctx = quicly_spec_context;
+    off = 0;
 
-	ret = quicly_decode_packet(&ctx, &p, Data, Size, 0);
+	ret = quicly_decode_packet(&ctx, &p, Data, Size, &off);
 
 	if (ret != Size)
 		return 0;
