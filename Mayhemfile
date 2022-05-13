@@ -2,4 +2,4 @@ project: quicly
 target: quicly-fuzzer-packet
 
 cmds:
-  - cmd: /quicly-fuzzer-packet /corpus
+  - cmd: /quicly-fuzzer-packet
