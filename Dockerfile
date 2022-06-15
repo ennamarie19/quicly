@@ -8,6 +8,7 @@ RUN apt-get update && \
 ## Add source code to the build stage.
 ADD . /quicly
 WORKDIR /quicly
+RUN git submodule update --remote
 
 ## TODO: ADD YOUR BUILD INSTRUCTIONS HERE.
 RUN mkdir -p build
