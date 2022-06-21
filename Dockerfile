@@ -23,5 +23,5 @@ FROM --platform=linux/amd64 ubuntu:20.04
 ## TODO: Change <Path in Builder Stage>
 COPY --from=builder /quicly/build/quicly-fuzzer-packet /
 #COPY --from=builder /quicly/deps /deps
-COPY --from=builder /quicly/testsuite /testsuite
+COPY --from=builder /quicly/corpus /testsuite
 COPY --from=builder /lib /lib
